@@ -1,0 +1,18 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /microservices/APP_NAME
+hooks:
+  ApplicationStop:
+    - location: scripts/on_application_stop.sh
+      timeout: 300
+      runas: ubuntu
+  AfterInstall:
+    - location: scripts/on_after_install.sh
+      timeout: 300
+      runas: ubuntu
+  ApplicationStart:
+    - location: scripts/on_application_start.sh
+      timeout: 300
+      runas: ubuntu

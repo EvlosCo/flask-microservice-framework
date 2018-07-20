@@ -1,0 +1,5 @@
+docker run --rm -it \
+    --name certbot1 \
+    -v $(pwd)/letsencrypt:/etc/letsencrypt \
+    certbot/certbot \
+    certonly --manual -d YOUR_DOMAIN --preferred-challenges dns --renew-by-default --email YOUR_CERT_EMAIL --agree-tos --manual-public-ip-logging-ok
